@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0d1821, #344966);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #0d1821;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #344966;
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #0d1821;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #344966;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* =============================
+   ADMIN DASHBOARD STYLES
+============================= */
+
+.admin-nav {
+  background-color: #0d1821;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.admin-nav h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+#logoutBtn {
+  background-color: #344966;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+
+#logoutBtn:hover {
+  background-color: #587291;
+}
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #0d1821;
+}
+
+.inquiries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inquiry-card {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+
+.inquiry-card:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.inquiry-card h3 {
+  margin-bottom: 0.5rem;
+  color: #0d1821;
+}
+
+.inquiry-card p {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.inquiry-card .date {
+  text-align: right;
+  font-size: 0.85rem;
+  color: gray;
+}
+
+.loading-text, .error-text {
+  text-align: center;
+  color: #555;
+}
+
