@@ -83,17 +83,23 @@ input:focus {
 }
 
 /* =============================
-   ADMIN DASHBOARD STYLES (Refined)
+   ADMIN DASHBOARD STYLES (Improved Layout)
 ============================= */
 
+/* Top navigation bar */
 .admin-nav {
+  position: fixed; /* stays on top when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #0d1821;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 }
 
 .admin-nav h1 {
@@ -117,16 +123,18 @@ input:focus {
   transform: scale(1.03);
 }
 
-/* Main Dashboard Container */
+/* Dashboard main container */
 .dashboard-container {
   padding: 2rem;
   max-width: 1100px;
-  margin: 2rem auto;
+  margin: 7rem auto 2rem; /* pushed below fixed navbar */
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.1);
+  min-height: calc(100vh - 100px); /* ensures full page coverage */
 }
 
+/* Dashboard heading */
 .dashboard-container h2 {
   text-align: center;
   margin-bottom: 2rem;
@@ -136,7 +144,7 @@ input:focus {
   padding-bottom: 0.5rem;
 }
 
-/* Inquiries layout */
+/* Inquiries grid */
 .inquiries-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -144,7 +152,7 @@ input:focus {
   padding: 0.5rem;
 }
 
-/* Inquiry Cards */
+/* Inquiry cards */
 .inquiry-card {
   background-color: #f8faff;
   border: 1px solid #dce3eb;
@@ -188,11 +196,12 @@ input:focus {
   font-style: italic;
 }
 
-/* Messages */
+/* Loading/Error messages */
 .loading-text, .error-text {
   text-align: center;
   color: #555;
   font-style: italic;
   margin-top: 2rem;
 }
+
 
