@@ -10,9 +10,10 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-// Fetch inquiries from backend
+// Fetch and display inquiries
 async function fetchInquiries() {
   const container = document.getElementById("inquiriesContainer");
+
   try {
     const response = await fetch("https://marome-backend.onrender.com/api/admin/inquiries", {
       headers: { Authorization: `Bearer ${token}` },
@@ -37,11 +38,39 @@ async function fetchInquiries() {
           <h3>${inq.name}</h3>
           <p><strong>Email:</strong> ${inq.email}</p>
           <p><strong>Project:</strong> ${inq.project}</p>
-          <p class="date">${new Date(inq.createdAt).toLocaleString()}</p>
+          <p class="date">${new Date(inq.date || inq.createdAt).toLocaleString()}</p>
+          <button class="delete-btn" data-id="${inq._id}">Delete</button>
         </div>
       `
       )
       .join("");
+
+    // Attach delete listeners
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach((btn) => {
+      btn.addEventListener("click", async (e) => {
+        const id = e.target.getAttribute("data-id");
+        const confirmDelete = confirm("Are you sure you want to delete this inquiry?");
+        if (!confirmDelete) return;
+
+        try {
+          const res = await fetch(`https://marome-backend.onrender.com/api/admin/inquiries/${id}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${token}` },
+          });
+
+          if (res.ok) {
+            alert("Inquiry deleted successfully!");
+            fetchInquiries(); // Refresh list after delete
+          } else {
+            alert("Failed to delete inquiry.");
+          }
+        } catch (error) {
+          console.error("Error deleting inquiry:", error);
+          alert("Server error while deleting inquiry.");
+        }
+      });
+    });
   } catch (error) {
     console.error(error);
     container.innerHTML = "<p class='error-text'>Server error while fetching data.</p>";
